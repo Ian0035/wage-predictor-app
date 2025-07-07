@@ -26,7 +26,7 @@ export default function HomePage() {
       .map((m) => m.content)
       .join('. ');
 
-    const res = await fetch('http://localhost:3001/wage/analyze', {
+    const res = await fetch('https://wage-predictor-app-backend.onrender.com/wage/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: fullText }),
@@ -47,7 +47,7 @@ export default function HomePage() {
 
         // 🔥 Call the R Plumber API
         try {
-          const predictRes = await fetch('http://localhost:3001/wage/predict', {
+          const predictRes = await fetch('https://wage-predictor-app-backend.onrender.com/wage/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
