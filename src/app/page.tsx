@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRef, useEffect } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { div } from 'framer-motion/client';
 
 
 type Message = {
@@ -19,6 +18,8 @@ export default function HomePage() {
   const [nextQuestion, setNextQuestion] = useState<string | null>(null);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const [predictedWage, setPredictedWage] = useState<string | null>(null);
+
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -78,6 +79,8 @@ export default function HomePage() {
           const wage = Number(prediction.predictedWage);
           const formatted = isNaN(wage) ? 'N/A' : wage.toFixed(2);
 
+          setPredictedWage(`$${formatted}`);
+
           setMessages(prev => [
             ...prev,
             { role: 'assistant', content: `Your predicted wage is **$${formatted}**.` }
@@ -103,41 +106,58 @@ export default function HomePage() {
   return (
   <div className="min-h-screen flex flex-col relative">
     <AnimatePresence>
-
-    {messages.length === 0 && (
-        <><motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[260px] -z-10 pointer-events-none">
+      {messages.length === 0 && (
+        <>
           {/* Back lines (left + bottom) */}
-          <svg viewBox="0 0 300 260" className="glow-triangle absolute scale-[2] w-full h-full pointer-events-none">
-            <line x1="10" y1="250" x2="150" y2="10" stroke="#00FF88" strokeWidth="4" />
-            <line x1="290" y1="250" x2="10" y2="250" stroke="#00FF88" strokeWidth="4" />
-          </svg>
-        </motion.div>
-        <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        transition={{ duration: 0.6 }}
-         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[260px] z-20 pointer-events-none">
-            {/* Top line (now foreground) */}
-            <svg viewBox="0 0 300 260" className="glow-triangle absolute scale-[2] w-full h-full pointer-events-none">
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                      w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px] 
+                      -z-10 pointer-events-none"
+          >
+            <svg
+              viewBox="0 0 300 260"
+              className="glow-triangle absolute w-full h-full scale-[1.2] sm:scale-[1.5] md:scale-[2] pointer-events-none"
+            >
+              <line x1="10" y1="250" x2="150" y2="10" stroke="#00FF88" strokeWidth="4" />
+              <line x1="290" y1="250" x2="10" y2="250" stroke="#00FF88" strokeWidth="4" />
+            </svg>
+          </motion.div>
+
+          {/* Top line (foreground) */}
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                      w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px] 
+                      z-20 pointer-events-none"
+          >
+            <svg
+              viewBox="0 0 300 260"
+              className="glow-triangle absolute w-full h-full scale-[1.2] sm:scale-[1.5] md:scale-[2] pointer-events-none"
+            >
               <line x1="150" y1="10" x2="290" y2="250" stroke="#00FF88" strokeWidth="4" />
             </svg>
           </motion.div>
+
+          {/* Full triangle outline (z-10, optional) */}
           <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                      w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px] 
+                      -z-10"
+          >
             <svg
-              width="600"
-              height="520"
               viewBox="0 0 300 260"
+              className="w-full h-full scale-[1.2] sm:scale-[1.5] md:scale-[2]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -145,12 +165,14 @@ export default function HomePage() {
                 points="150,10 290,250 10,250"
                 stroke="#00FF88"
                 strokeWidth="4"
-                fill="none" />
+                fill="none"
+              />
             </svg>
-          </motion.div></>
-
-    )}
+          </motion.div>
+        </>
+      )}
     </AnimatePresence>
+
 
     {/* Background gradient */}
     {/* Background circles */}
@@ -194,7 +216,7 @@ export default function HomePage() {
             {messages.map((msg, idx) => (
               <motion.div
                 key={idx}
-                className={`max-w-xs w-fit py-2 px-3 mx-3 my-3 rounded-lg text-white relative ${
+                className={`w-fit max-w-10/12 py-2 px-3 mx-3 my-3 rounded-lg text-white relative ${
                   msg.role === 'user'
                     ? 'bg-black/30 border-2 border-green-400 shadow-[0_0_12px_2px_#00FF88] self-end ml-auto'
                     : 'bg-black/30 border-2 border-blue-400 shadow-[0_0_12px_2px_#00CCFF] self-start mr-auto'
@@ -216,11 +238,38 @@ export default function HomePage() {
       )}
     </AnimatePresence>
 
+    <AnimatePresence>
+        {predictedWage && (
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 1 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                        z-50 bg-black/80 border-4 border-green-400 text-white shadow-[0_0_12px_2px_#00FF88]
+                        px-8 py-6 rounded-2xl text-3xl text-center space-y-4 backdrop-blur-lg"
+            >
+              <div>
+                Your predicted wage is <span className="text-green-300 text-4xl">{predictedWage}</span>
+              </div>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+              >
+                Close
+              </button>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+
 
     {/* Input form */}
     <motion.form
       onSubmit={handleSubmit}
-      className="flex space-x-2 flex-none z-10"
+      className="w-full ml-auto mr-auto max-w-xl flex sm:flex-row flex-col gap-2 items-stretch h-12 z-10"
       layout
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
@@ -228,15 +277,15 @@ export default function HomePage() {
     >
       <input
         type="text"
-        className="flex-grow p-3 rounded-xl border-2 placeholder-gray-300"
+        className="flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300"
         placeholder="Describe yourself (e.g. I'm 39, live in Copenhagen...)"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
       <button
         type="submit"
-        className={`px-4 py-2 rounded ${
-          missingField ? 'bg-gray-600 text-white' : 'bg-green-600 text-white'
+        className={`h-full min-h-10 px-4 rounded-xl ${
+          missingField ? 'bg-gray-600 text-white' : 'bg-green-500 text-white'
         }`}
       >
         {missingField ? 'Continue' : 'Predict'}
