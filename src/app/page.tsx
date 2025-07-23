@@ -116,7 +116,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                       w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px] 
-                      -z-10 pointer-events-none"
+                      z-0 pointer-events-none"
           >
             <svg
               viewBox="0 0 300 260"
@@ -153,7 +153,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                       w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px] 
-                      -z-10"
+                      z-0"
           >
             <svg
               viewBox="0 0 300 260"
@@ -192,7 +192,7 @@ export default function HomePage() {
   >
     {/* Title */}
     <motion.h1
-      className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center z-10 pb-2 flex-none"
+      className="mb-4 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl text-center z-10 pb-2 flex-none"
       initial={{ opacity: 0, y: -80 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -277,7 +277,7 @@ export default function HomePage() {
     >
       <input
         type="text"
-        className="flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300"
+        className="flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300 border-white"
         placeholder="Describe yourself (e.g. I'm 39, live in Copenhagen...)"
         value={input}
         onChange={(e) => setInput(e.target.value)}

@@ -129,7 +129,7 @@ function HomePage() {
         sendMessage(input.trim());
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen flex flex-col relative",
+        className: "min-h-screen bg-black flex flex-col relative",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                 children: messages.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -147,7 +147,7 @@ function HomePage() {
                             transition: {
                                 duration: 0.6
                             },
-                            className: "absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px]  -z-10 pointer-events-none",
+                            className: "absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px]  z-0 pointer-events-none",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 viewBox: "0 0 300 260",
                                 className: "glow-triangle absolute w-full h-full scale-[1.2] sm:scale-[1.5] md:scale-[2] pointer-events-none",
@@ -239,7 +239,7 @@ function HomePage() {
                             transition: {
                                 duration: 0.6
                             },
-                            className: "absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px]  -z-10",
+                            className: "absolute top-[22%] sm:top-[46%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[160px] sm:w-[250px] sm:h-[220px] md:w-[300px] md:h-[260px]  z-0",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 viewBox: "0 0 300 260",
                                 className: "w-full h-full scale-[1.2] sm:scale-[1.5] md:scale-[2]",
@@ -311,7 +311,7 @@ function HomePage() {
                     },
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].h1, {
-                            className: "mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center z-10 pb-2 flex-none",
+                            className: "mb-4 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl text-center z-10 pb-2 flex-none",
                             initial: {
                                 opacity: 0,
                                 y: -80
@@ -485,7 +485,7 @@ function HomePage() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     type: "text",
-                                    className: "flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300",
+                                    className: "flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300 border-white",
                                     placeholder: "Describe yourself (e.g. I'm 39, live in Copenhagen...)",
                                     value: input,
                                     onChange: (e)=>setInput(e.target.value)
