@@ -277,7 +277,7 @@ export default function HomePage() {
     >
       <input
         type="text"
-        className="flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300 border-white"
+        className="flex-1 h-full p-3 rounded-xl border-2 placeholder-gray-300 border-white text-white"
         placeholder="Describe yourself (e.g. I'm 39, live in Copenhagen...)"
         value={input}
         onChange={(e) => setInput(e.target.value)}

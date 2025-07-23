@@ -51,10 +51,10 @@
     --color-green-400: oklch(79.2% .209 151.711);
     --color-green-500: oklch(72.3% .219 149.579);
     --color-green-600: oklch(62.7% .194 149.214);
+    --color-blue-200: oklch(88.2% .059 254.128);
     --color-blue-400: oklch(70.7% .165 254.624);
     --color-gray-300: oklch(87.2% .01 258.338);
     --color-gray-600: oklch(44.6% .03 256.802);
-    --color-gray-900: oklch(21% .034 264.665);
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
@@ -293,10 +293,6 @@
     left: 50%;
   }
 
-  .-z-10 {
-    z-index: calc(10 * -1);
-  }
-
   .z-0 {
     z-index: 0;
   }
@@ -495,10 +491,6 @@
     border-color: var(--color-green-400);
   }
 
-  .border-green-500 {
-    border-color: var(--color-green-500);
-  }
-
   .border-white {
     border-color: var(--color-white);
   }
@@ -605,8 +597,8 @@
     font-weight: var(--font-weight-extrabold);
   }
 
-  .text-gray-900 {
-    color: var(--color-gray-900);
+  .text-blue-200 {
+    color: var(--color-blue-200);
   }
 
   .text-green-300 {
@@ -628,10 +620,6 @@
 
   .placeholder-gray-300::placeholder {
     color: var(--color-gray-300);
-  }
-
-  .placeholder-green-500::placeholder {
-    color: var(--color-green-500);
   }
 
   .shadow-\[0_0_12px_2px_\#00CCFF\] {
@@ -660,10 +648,25 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
 
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
   @media (hover: hover) {
     .hover\:bg-green-600:hover {
       background-color: var(--color-green-600);
     }
+  }
+
+  .focus\:border-green-400:focus {
+    border-color: var(--color-green-400);
+  }
+
+  .focus\:outline-none:focus {
+    --tw-outline-style: none;
+    outline-style: none;
   }
 
   @media (width >= 40rem) {
@@ -731,12 +734,6 @@
     .lg\:text-6xl {
       font-size: var(--text-6xl);
       line-height: var(--tw-leading, var(--text-6xl--line-height));
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dark\:text-white {
-      color: var(--color-white);
     }
   }
 }
