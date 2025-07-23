@@ -104,7 +104,7 @@ export default function HomePage() {
   };
 
   return (
-  <div className="min-h-screen flex flex-col relative">
+  <div className="min-h-screen bg-black flex flex-col relative">
     <AnimatePresence>
       {messages.length === 0 && (
         <>
