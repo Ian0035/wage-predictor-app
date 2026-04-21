@@ -197,7 +197,7 @@ export default function HomePage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Use AI</span> to predict your wage
+    <span className="text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-blue-400">Use AI</span> to predict your wage
     </motion.h1>
 
     <AnimatePresence>
